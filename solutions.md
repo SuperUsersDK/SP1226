@@ -2,15 +2,15 @@
 
 ```bash
 echo Filenames with 3 characters in length:
-ls -ld ???
+ls -ld ??? | grep -v ^d
 echo
 
 echo Filenames with 4 characters in length:
-ls -ld ????
+ls -ld ???? | grep -v ^d
 echo
 
 echo Filenames with 5 characters in length:
-ls -ld ?????
+ls -ld ????? | grep -v ^d
 echo
 
 echo Report made by $LOGNAME - $(date +%F)
