@@ -94,4 +94,45 @@ eval eval echo \\$\$$OUTER
 eval eval eval echo \\\\\$\\\$\$$CRAZY
 ```
 
+# Exercise 9.9
+```bash
+#!/bin/bash
+
+SIZE=${1:-5}
+FYL=$2
+
+case "$FYL" {
+    \*|Yes|yes|Y|y)	FYL='*' ;;
+    *)          		FYL=' ' ;;
+}
+
+LINES=$((2*SIZE-1))
+for COUNT1 in $(seq 1 $LINES)
+do
+  if [ $COUNT1 -gt $SIZE ]  
+  then
+    SPACE_BEFORE_STAR=$((COUNT1-SIZE))
+    SPACE_BETWEEN_STAR=$((2*(2*SIZE-COUNT1)-3))
+  else
+    SPACE_BEFORE_STAR=$((SIZE-COUNT1))
+    SPACE_BETWEEN_STAR=$((2*COUNT1-3))
+  fi
+  LINJE=""
+  for COUNT2 in $(seq 1 $SPACE_BEFORE_STAR)
+  do
+     LINJE=" $LINJE"
+  done
+  LINJE="$LINJE*"
+  if [ $COUNT1 -gt 1 -a $COUNT1 -lt $LINES ] 
+  then
+    for g in $(seq 1 $SPACE_BETWEEN_STAR)
+    do
+      LINJE="$LINJE$FYL"
+    done
+    LINJE="$LINJE*"
+  fi
+  echo "$LINJE"
+done
+```
+
 
