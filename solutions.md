@@ -6,11 +6,11 @@ ls -ld ???
 echo
 
 echo Filenames with 4 characters in length:
-ls -ld ???
+ls -ld ????
 echo
 
 echo Filenames with 5 characters in length:
-ls -ld ???
+ls -ld ?????
 echo
 
 echo Report made by $LOGNAME - $(date +%F)
