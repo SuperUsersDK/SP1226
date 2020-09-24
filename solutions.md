@@ -71,6 +71,23 @@ done
 cat ../dir-b/* > ../Kontrolfil
 ```
 
+# Exercise 9.3 (alternative solution)
+```bash
+
+cd Kap.5/dir-a/
+for FILE_IN_A in *
+do
+  if ls ../dir-b/$FILE_IN_A 2>/dev/null
+  then
+    echo File $FILE_IN_A already exists in dir-b/
+  else
+    cp $FILE_IN_A ../dir-b/
+  fi
+done
+
+cat ../dir-b/* > ../Kontrolfil
+```
+
 # Exercise 9.7
 ```bash
 if [ "$1" = "Los Angeles" -o "$1" = "Store Heddinge" ]
